@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore New York City</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2efff;
+            color: #333;
+        }
+
+        header {
+            background-color: #473078;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* Horizontal navigation bar */
+        nav {
+            background-color: #7654a3;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            background-color: #4d3278;
+        }
+
+        /* CSS sprite icons */
+        .sprite {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 6px;
+            vertical-align: middle;
+            background-image: url(
+                "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/bootstrap-icons.svg"
+            );
+            background-size: 20px 20px;
+        }
+
+        /* CSS-drawn sprite sheet */
+        .sprite-sheet {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .sprite {
+            background-image: url("#nav-sprites");
+        }
+
+        /* Two-level dropdown navigation */
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #7654a3;
+            min-width: 170px;
+            z-index: 10;
+        }
+
+        nav ul ul li {
+            width: 100%;
+        }
+
+        nav li:hover > ul,
+        nav li:focus-within > ul {
+            display: block;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            padding: 25px;
+        }
+
+        h2 {
+            color: #473078;
+        }
+
+        .images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .image-box {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #473078;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul ul {
+                position: static;
+                width: 100%;
+            }
+
+            .images {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SVG sprite sheet -->
+    <svg class="sprite-sheet"
+         xmlns="http://www.w3.org/2000/svg">
+        <symbol id="home-icon" viewBox="0 0 24 24">
+            <path d="M3 11L12 3L21 11V21H3Z"
+                  fill="none" stroke="white"
+                  stroke-width="2"/>
+        </symbol>
+        <symbol id="camera-icon" viewBox="0 0 24 24">
+            <rect x="2" y="6" width="20" height="15"
+                  fill="none" stroke="white"
+                  stroke-width="2"/>
+            <circle cx="12" cy="13" r="4"
+                    fill="none" stroke="white"
+                    stroke-width="2"/>
+        </symbol>
+        <symbol id="info-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"
+                    fill="none" stroke="white"
+                    stroke-width="2"/>
+            <path d="M12 10V17M12 6V8"
+                  stroke="white" stroke-width="2"/>
+        </symbol>
+    </svg>
+
+    <header id="home">
+        <h1>Explore New York City</h1>
+        <p>Discover the city that never sleeps!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="#home">
+                    &#8962; Home
+                </a>
+            </li>
+
+            <li>
+                <a href="#attractions">
+                    &#9733; Attractions &#9662;
+                </a>
+                <ul>
+                    <li>
+                        <a href="#times-square">
+                            Times Square
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#statue">
+                            Statue of Liberty
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#about">
+                    &#9432; About NYC &#9662;
+                </a>
+                <ul>
+                    <li>
+                        <a href="https://www.nyc.gov/">
+                            NYC Website
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.nyctourism.com/">
+                            NYC Tourism
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>Welcome to New York City!</h2>
+            <p>
+                New York City is one of the most
+                exciting cities in the world.
+                It is known for its famous landmarks,
+                amazing food, shopping, and entertainment.
+                There is always something fun to do
+                in the city that never sleeps!
+            </p>
+        </section>
+
+        <section id="attractions">
+            <h2>Popular Attractions</h2>
+
+            <div class="images">
+
+                <div class="image-box" id="times-square">
+                    <h3>Times Square</h3>
+                    <img
+                        src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=900"
+                        alt="New York City skyline">
+                    <p>
+                        Times Square is famous for its
+                        bright lights, shopping,
+                        Broadway shows, and excitement.
+                    </p>
+                    <a href="https://www.timessquarenyc.org/">
+                        Learn More
+                    </a>
+                </div>
+
+                <div class="image-box" id="statue">
+                    <h3>Statue of Liberty</h3>
+                    <img
+                        src="https://images.unsplash.com/photo-1503572327579-b5c6afe5c5c5?w=900"
+                        alt="Statue of Liberty in New York">
+                    <p>
+                        The Statue of Liberty is one
+                        of New York City's most famous
+                        landmarks and represents
+                        freedom and opportunity.
+                    </p>
+                    <a href="https://www.nps.gov/stli/">
+                        Learn More
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Explore New York City</p>
+    </footer>
+
+</body>
+</html>
